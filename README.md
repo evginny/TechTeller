@@ -1,6 +1,6 @@
 # TechTeller
 ## Description
-This web application is a Flask-based project that interacts with the Hacker News API to fetch and display news items. It allows users to view, like, and dislike news articles, providing an engaging platform for news consumption. The application integrates user authentication and session management, ensuring a personalized experience.
+This web application is a Flask-based project that interacts with the Hacker News API to fetch and display news items. It allows users to view, like, and dislike news articles, providing an engaging platform for news consumption. The application integrates user authentication and session management, ensuring a personalized experience.  
 [Visit TechTeller](https://ek.evginny.com/)
 ## Features
 * News Fetching: Automatically fetches the latest news from Hacker News API.
