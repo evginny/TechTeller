@@ -88,7 +88,7 @@ server {
     return 404; # managed by Certbot
 }
 
-- Supervisor Configuration
+- Supervisor Configuration  
 Supervisor is used to manage the Gunicorn process for the Flask application.
 [program:myproject]  
 directory=path/myproject  
