@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-md pt-3 pb-2">
+    <div class="container-fluid">
+        <h3 class="navbar-brand mb-3 h1">TechTeller</h3>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+			<a class="nav-link" href="{{ url_for('mynews') }}">News Feed</a>
+                </li>
+                <li class="nav-item">
+			<a class="nav-link" href="{{ url_for('logout') }}">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section id="profile" class="p-5">
+    <div class="container">
+        <div class="card mx-auto me-lg-5 ms-lg-5 my_card">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-4">
+                    <img src="{{ picture }}" class="img-fluid rounded-start me-3" alt="Profile Picture">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ user_info['name'] }}</h3>
+                        <p class="card-text">{{ user_info['email'] }}</p>
+			<p class="card-text">{{ user_info['nickname'] }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content%}

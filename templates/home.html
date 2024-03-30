@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section id="intro" class="d-flex justify-content-center align-items-center">
+    <div class="container-lg ">
+        <div class="row">
+            <div class="col-lg-12  text-center pt-5 my-3">
+                <h2>Welcome to TechTeller!</h2>
+            </div>
+            <div class="col-lg-12 text-center pt-2">
+                <h4>
+                    Dive into the dynamic world of technology and innovation with InfoCoders, your premier destination
+                    for the latest and most intriguing tech news. At InfoCoders, we bring you a curated selection of top
+                    stories from Hacker News, ensuring you stay informed and ahead of the curve in the ever-evolving
+                    tech landscape.
+                </h4>
+            </div>
+            <div class="col-lg-12 text-center g-4">
+                <button class = "home-button" type="button">
+                    Access Now
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock content%}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock scripts %}

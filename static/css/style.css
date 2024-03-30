@@ -1,0 +1,141 @@
+body {
+    --maincolor: DarkSlateGrey;
+    --lightcolor: #D9EED9;
+    --darkcolor: #B0D4B0;
+    --shadow: #D1DFD1;
+    --dislike: #F08080;
+    --like: #20B2AA;
+    color: var(--maincolor);
+    background-color: Honeydew;
+}
+
+.home-button {
+    background-color: var(--lightcolor);
+    border: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    width: 10em;
+    border-radius: 1rem;
+    color: var(--maincolor);
+    box-shadow: 0 0.4rem var(--shadow);
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.home-button:active {
+    color: var(--maincolor);
+    box-shadow: 0 0.2rem var(--shadow);
+    transform: translateY(0.2rem);
+}
+
+.home-button:hover:not(:disabled) {
+    background: var(--darkcolor);
+    color: white;
+    text-shadow: 0 0.1rem #bcb4b4;
+}
+
+.home-button:disabled {
+    cursor: auto;
+    color: grey;
+}
+
+button {
+    background-color: #e0e0e0;
+    border: none;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    color: var(--maincolor);
+    cursor: pointer;
+    padding: 0.5em 1em;
+    white-space: nowrap;
+    line-height: 1;
+    height: auto;
+    width: auto;
+    font-weight: bolder;
+}
+
+button:hover {
+    background-color: (--lightcolor);
+}
+
+button:hover:not(:disabled) {
+    background: var(--darkcolor);
+    color: white;
+    text-shadow: 0 0.1rem #bcb4b4;
+}
+
+.my_card {
+    background-color: var(--lightcolor);
+}
+
+.navbar-nav .nav-link {
+    color: var(--maincolor)
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--darkcolor);
+}
+
+.navbar {
+    padding-left: 3.8em;
+    padding-right: 3.8em;
+}
+
+.like-btn,
+.dislike-btn {
+    cursor: pointer;
+    background-color: #e0e0e0;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    font-weight: bolder;
+}
+
+.like-btn:hover,
+.dislike-btn:hover {
+    background-color: var(--lightcolor);
+}
+
+.liked {
+    background-color: var(--like);
+}
+
+.disliked {
+    background-color: var(--dislike);
+}
+
+.nav-sort {
+    background-color: var(--darkcolor);
+}
+
+.navbar-nav .sort-by:hover {
+    color: var(--maincolor);
+}
+
+.navbar-nav .sort:hover {
+    color: white;
+}
+
+.pagination .page-link {
+    color: var(--maincolor);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--darkcolor);
+    border-color: var(--darkcolor)
+}
+
+a.admin {
+    background-color: var(--maincolor);
+    border-radius: 1rem;
+    padding: 0.5em 0.5em;
+    margin-top: 0.5em;
+    color: var(--lightcolor);
+}
+
+a.admin:hover {
+    background-color: var(--lightcolor);
+    color: var(--maincolor);
+}
+
+

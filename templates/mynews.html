@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<nav class="navbar navbar-expand-md pt-3 pb-2">
+    <div class="container-fluid">
+        <h3 class="navbar-brand mb-3 h1">TechTeller</h3>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('profile') }}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-md nav-sort">
+    <div class="container-fluid">
+	    {% if is_admin %}
+	    <a href="{{ url_for('user_list') }}" class="navbar-brand h3 admin">Admin View</a>
+	    {% endif %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <span class="nav-link sort-by">Sort by:</span>
+                <li class="nav-item">
+                    <a href="{{ url_for('mynews', sort='newest') }}" class="nav-link sort">Newest</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('mynews', sort='popularity') }}"class="nav-link sort">Most
+                        Popular</a>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+  {% for news in news_items %}
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ news.title }}</h5>
+      <p class="card-text">By {{ news.by }}</p>
+      <button type="button" class="new-button read-more-button" data-url="{{ news.url }}">
+        Read more
+      </button>
+      <button class="like-btn new-button {% if news.id in liked_news_ids %}liked{% endif %}" data-id="{{ news.id }}"><i class="bi bi-hand-thumbs-up"></i></button>
+      <button class="dislike-btn new-button {% if news.id in disliked_news_ids %}disliked{% endif %}" data-id="{{ news.id }}"><i class="bi bi-hand-thumbs-down"></i></button>
+    </div>
+  </div>
+  {% else %}
+  <p>No news items found.</p>
+  {% endfor %}
+
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      <li class="page-item {% if page == 1 %}disabled{% endif %}">
+        <a class="page-link" href="{{ url_for('mynews', page=page-1, sort=sort_by) }}" tabindex="-1">Previous</a>
+      </li>
+      {% for i in range(1, total_pages + 1) %}
+      <li class="page-item {% if i == page %}active{% endif %}">
+        <a class="page-link" href="{{ url_for('mynews', page=i, sort=sort_by) }}">{{ i }}</a>
+      </li>
+      {% endfor %}
+      <li class="page-item {% if page == total_pages %}disabled{% endif %}">
+        <a class="page-link" href="{{ url_for('mynews', page=page+1, sort=sort_by) }}">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock content %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock scripts %}
