@@ -101,11 +101,11 @@ killasgroup=true
 stderr_logfile=/var/log/myproject/myproject.err.log  
 stdout_logfile=/var/log/myproject/myproject.out.log  
 
-- Gunicorn Configuration
+- Gunicorn Configuration  
 Gunicorn is configured to run the Flask application with 3 worker processes.  
 gunicorn -w 3 app:app
 
-- Cron Job
+- Cron Job  
 A cron job is set up to run a script periodically (every hour in this case) to fetch news from Hacker News API.  
 0 * * * * cd /home/ek19n/myproject && /usr/bin/python3 fetch_hackernews.py
 
